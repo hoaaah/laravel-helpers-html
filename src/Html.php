@@ -90,7 +90,7 @@ class Html
      */
     public static function encode($content, $doubleEncode = true)
     {
-        return htmlspecialchars($content, ENT_QUOTES | ENT_SUBSTITUTE, Yii::$app ? Yii::$app->charset : 'UTF-8', $doubleEncode);
+        return htmlspecialchars($content, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8', $doubleEncode);
     }
 
     /**
@@ -388,7 +388,7 @@ class Html
     public static function a($text, $url = null, $options = [])
     {
         if ($url !== null) {
-            $options['href'] = Url::to($url);
+            $options['href'] = url($url);
         }
         return static::tag('a', $text, $options);
     }
